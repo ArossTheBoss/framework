@@ -16,8 +16,11 @@ class TestDevEnv():
         cls.response_from_example_service = cls.example_service.get_status_code()
     
     def test_one(self):
-        '''Dummy test'''
+        '''Dummy test 1'''
         resp_status_code = self.response_from_example_service.status_code
         assert resp_status_code == 200, f"Expected status code of 200 but recieved {resp_status_code}"
+    
+
+        
         
         

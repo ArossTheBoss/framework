@@ -12,10 +12,9 @@ LOG = logging.getLogger(__name__)
 # Loads free form configs on start and caches globally
 def pytest_sessionstart(session):
     load_env()
-    LOG.info("Starting pytest session!")
 
 def load_env():
-    env = os.environ.get("test_env", "dev").upper()
+    env = os.environ.get("TEST_ENV", "DEV").upper()
     
     valid_envs: dict = { "DEV": EnvDev, "QA": EnvQA }
         
@@ -31,8 +30,8 @@ def load_env():
 
 def pytest_sessionfinish(session, exitstatus):
     """ whole test run finishes. """
-    LOG.info("Ending pytest session. Check logs and reports for more details!")
-    
+    return exitstatus
+
 
 def pytest_html_results_table_header(cells):
     cells.insert(2, "<th>Description</th>")

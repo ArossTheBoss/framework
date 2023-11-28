@@ -13,9 +13,10 @@ class ExampleComService():
         
     
     def get_status_code(self):
-        path = "/"
+        url = self.base_url + "/"
         try:
-            self.response = self.rest_client.get(url=self.base_url + path)
+            self.response = self.rest_client.get(url=url, params={})
+            LOG.info("")
         except Exception as e:
             LOG.error(e)
         return self.response
