@@ -13,4 +13,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 ENV TEST_ENV=DEV
 
 # Run hello.py when the container launches
-CMD ["pytest", "tests/","--html=reports/report.html", "--self-contained-html", "--no-header", "-v"]
+CMD ["pytest", "tests/","--html=reports/report.html", "--self-contained-html", "-v"]
